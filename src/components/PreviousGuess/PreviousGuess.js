@@ -4,12 +4,8 @@ function PreviousGuess({ guesses }) {
   return (
     <div>
       <div className="guess-results">
-        {guesses.map((word) => {
-          return (
-            <p className="guess" key={crypto.randomUUID()}>
-              {word}
-            </p>
-          );
+        {guesses.map((word, index) => {
+          return <p className="guess">{word}</p>;
         })}
       </div>
     </div>
