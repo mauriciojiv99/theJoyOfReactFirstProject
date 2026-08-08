@@ -3,7 +3,7 @@ import { WORDS } from "../../data";
 import GuessInput from "../GuessInput/GuessInput";
 import PreviousGuess from "../PreviousGuess/PreviousGuess";
 import React, { useState } from "react";
-import GuessGrid from "../Guess/Guess";
+import Guess from "../Guess/Guess";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
