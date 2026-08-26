@@ -5,7 +5,6 @@ import { WORDS } from "../../data.js";
 
 function Guess({ guess, answer }) {
   const status = checkGuess(guess, answer);
-  console.log(status);
   return (
     <div className="guess-results">
       <p className="guess">

@@ -9,7 +9,9 @@ function PreviousGuess({ guesses, answer }) {
     <div>
       <div className="guess-results">
         {range(NUM_OF_GUESSES_ALLOWED).map((num_of_guess, index) => {
-          return <Guess key={index} guess={guesses[num_of_guess]} />;
+          return (
+            <Guess key={index} guess={guesses[num_of_guess]} answer={answer} />
+          );
         })}
       </div>
     </div>
