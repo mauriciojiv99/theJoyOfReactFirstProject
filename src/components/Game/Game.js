@@ -2,8 +2,11 @@ import { sample } from "../../utils";
 import { WORDS } from "../../data";
 import GuessInput from "../GuessInput/GuessInput";
 import PreviousGuess from "../PreviousGuess/PreviousGuess";
+import Banner from "../Banner/Banner";
+
 import React, { useState } from "react";
 import Guess from "../Guess/Guess";
+import BannerLost from "../BannerLost/BannerLost";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -13,6 +16,8 @@ console.info({ answer });
 function Game() {
   const [guess, setGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
+  const [game_status, setGame_status] = useState("lost");
+  const [game_counter, setGame_counter] = useState(0);
   return (
     <>
       <PreviousGuess guesses={guesses} answer={answer} />
@@ -22,6 +27,13 @@ function Game() {
         guesses={guesses}
         setGuesses={setGuesses}
       />
+      {game_status === "won" ? (
+        <Banner />
+      ) : game_status === "lost" ? (
+        <BannerLost answer={answer} />
+      ) : (
+        <p>Running</p>
+      )}
     </>
   );
 }

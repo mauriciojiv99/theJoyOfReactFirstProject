@@ -3,29 +3,22 @@ import { range } from "../../utils";
 import { checkGuess } from "../../game-helpers.js";
 import { WORDS } from "../../data.js";
 
+function Cell({ letter, status }) {
+  return <span className={`cell ${status}`}>{letter}</span>;
+}
+
 function Guess({ guess, answer }) {
-  const status = checkGuess(guess, answer);
+  const result = checkGuess(guess, answer);
   return (
     <div className="guess-results">
       <p className="guess">
-        {range(5).map((letter, index) => {
+        {range(5).map((num) => {
           return (
-            <span
-              key={index}
-              className={`cell ${
-                guess && status && status[index]
-                  ? status[index].status === "correct"
-                    ? "correct"
-                    : status[index].status === "incorrect"
-                    ? "incorrect"
-                    : status[index].status === "misplaced"
-                    ? "misplaced"
-                    : ""
-                  : ""
-              }`}
-            >
-              {guess ? guess[letter] : undefined}
-            </span>
+            <Cell
+              key={num}
+              letter={result ? result[num].letter : undefined}
+              status={result ? result[num].status : undefined}
+            />
           );
         })}
       </p>
