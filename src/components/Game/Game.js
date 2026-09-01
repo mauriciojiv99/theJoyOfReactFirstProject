@@ -16,8 +16,7 @@ console.info({ answer });
 function Game() {
   const [guess, setGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
-  const [game_status, setGame_status] = useState("lost");
-  const [game_counter, setGame_counter] = useState(0);
+  const [game_status, setGame_status] = useState("running");
   return (
     <>
       <PreviousGuess guesses={guesses} answer={answer} />

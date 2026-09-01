@@ -1,7 +1,8 @@
-import React from "react";
+import React, { use, useState } from "react";
 import { range } from "../../utils";
 import { checkGuess } from "../../game-helpers.js";
 import { WORDS } from "../../data.js";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
 function Cell({ letter, status }) {
   return <span className={`cell ${status}`}>{letter}</span>;
@@ -9,6 +10,7 @@ function Cell({ letter, status }) {
 
 function Guess({ guess, answer }) {
   const result = checkGuess(guess, answer);
+
   return (
     <div className="guess-results">
       <p className="guess">
